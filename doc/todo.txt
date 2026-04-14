@@ -1,0 +1,67 @@
+﻿- select priority for converter / packer process
+
+- statistics: current session, global (about, zerowanie)
+
+- menu: move src -> dest
+
+- list: output size, coloring
+
+- details: image list, delete images, preview, rename/reorder
+
+
+TODO:
+- disable adding new files while converting
+
+- in case output is not smaller than input
+[] force jpeg if converted file is greater size than original
+[_] skip whole zip/rar if final size is bigger than [xxx%]
+[_] skip single jpegs if size is size is bigger than [xxx%]
+
+- delete items from tmp directory if app is closed before conversion is started
+
+- fix page numbering : 1.jpg, 11.jpg (missing leading zeroes)
+
+> 1. Za szybko startuje skan - zdarza się, że chciałbym utworzyć kolejkę z  
+> kilkunastu różnych katalogów i dopiero wystartować z konwersją. Dobrym  
+> rozwiązaniem byłby przycisk "start scan".
+> 2. Wybór zmniejszenia obrazka jeśli szerokość większa niż LUB wysokość  
+> większa niż.
+> 3. Coś bardzo miłego - Łączenie kilku cbX w jeden.
+
+- create cbz file from bunch of image files / folder with image files
+
+
+Is it possible to add a PAUSE and or CANCEL button to the CBXconverter?
+1. Pause: In case you want to adjust the processing order of items after starting.   Or even delete/remove items.
+2. Cancel: To fully abort the entire process cleanly/safely.
+
+
+> PROŚBA 2:
+>
+> podczas masowej konwersji testowego katalogu zdarzyło mi sie dwa razy że  
+> program trafił na zahasłowany plik rar który niechcący wylądował w  
+> zbiorach.
+>
+> W takim przypadku program głupieje nie mozna nic zrobić. Konwersja  
+> zatrzymuje się na takim zahasłowanym pliku w trybie unpacking i nic sie  
+> nie dzieje.
+>
+> niby jest opcja z prawego przycisku myszy REMOVE SELECTED FILES FROM  
+> LIST ale nie mozna jej uzyć w trakcie konwersji  na problematycznym  
+> pliku bo program krzyczy CANNOT MODIFY LIST WHILE CONVERTING.
+>
+> moim zdaniem powinna być możliwosc dodania opcji w ustawieniach:
+>
+> - automatyczne omijanie zahasłowanych plików ON/OFF
+>
+> oraz opcjonalnie opcja
+>
+> - omiń przy rozpakowywaniu oraz przenieś wszystkie zahasłowane pliki do  
+> oddzielnego folderu (i tutaj opcja do okreslenia tego folderu oraz  
+> scieżki dostepu)
+
+
+
+- add clear message when pdf is dropped but ghostscript is not found at specified location
+
+- move app to last remaining monitor when monitor was removed (multi-monitor setup); or is it problem specific to Win11 when all monitors are detached?
