@@ -124,4 +124,12 @@ previously new entry for default resizing rules could be added with down arrow -
 - updated bundled 7z to version 25.01 (2025-08-03)
 - updated bundled ImageMagick to version 7.1.2.3 (ImageMagick-7.1.2-3-portable-Q8-x86.zip)
 - added MSVC 2015 runtime dlls required by included ImageMagick version
+
+0.16
+- added function/window renaming files in temporary folder
+	- main purpose: merging multiple comic books or their fragments - this requires continuous and consistent file naming
+	- configurable pattern for generating new names
+	- option to extract page number from existing file
+		- option to add positive or negative offset to extracted number
+	- option to start numbering files from specified offset
 */

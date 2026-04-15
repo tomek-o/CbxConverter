@@ -8,6 +8,7 @@
 #include "FormAbout.h"
 #include "FormSettings.h"
 #include "FormResizeCfg.h"
+#include "FormRename.h"
 #include "Utils.h"
 #include "LogUnit.h"
 #include "Log.h"
@@ -1021,6 +1022,21 @@ AnsiString TfrmMain::GetItemCaption(AnsiString rootPath, AnsiString name)
 void __fastcall TfrmMain::miSelectAllClick(TObject *Sender)
 {
 	lvInput->SelectAll();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmMain::miRenameImageFilesClick(TObject *Sender)
+{
+	if (!jobQueue->isEmpty())
+	{
+		ShowMessage("Cannot modify list while converting");
+		return;
+	}
+	if (!lvInput->Selected)
+		return;
+	int id = lvInput->Selected->Index;
+	SourceFile *selectedFile = sourceFiles[id];	
+	frmRename->ShowModal(selectedFile);	
 }
 //---------------------------------------------------------------------------
 

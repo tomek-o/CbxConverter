@@ -8,6 +8,7 @@ USEFORM("FormSettings.cpp", frmSettings);
 USEFORM("FormAbout.cpp", frmAbout);
 USEFORM("LogUnit.cpp", frmLog);
 USEFORM("FormResizeCfg.cpp", frmResizeCfg);
+USEFORM("FormRename.cpp", frmRename);
 //---------------------------------------------------------------------------
 #include "WindowsMessageFilter.h"
 
@@ -43,6 +44,7 @@ WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 		Application->CreateForm(__classid(TfrmAbout), &frmAbout);
 		Application->CreateForm(__classid(TfrmLog), &frmLog);
 		Application->CreateForm(__classid(TfrmResizeCfg), &frmResizeCfg);
+		Application->CreateForm(__classid(TfrmRename), &frmRename);
 		Application->Run();
 	}
 	catch (Exception &exception)

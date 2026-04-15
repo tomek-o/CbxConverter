@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'CbxConverter'
-  ClientHeight = 500
+  ClientHeight = 519
   ClientWidth = 942
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,19 +21,21 @@ object frmMain: TfrmMain
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 481
+    Top = 500
     Width = 942
     Height = 19
     Panels = <>
+    ExplicitTop = 481
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 442
+    Top = 461
     Width = 942
     Height = 39
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
+    ExplicitTop = 442
     object btnStartConversion: TButton
       Left = 16
       Top = 6
@@ -48,7 +50,7 @@ object frmMain: TfrmMain
     Left = 0
     Top = 0
     Width = 942
-    Height = 442
+    Height = 461
     Align = alClient
     Columns = <
       item
@@ -97,6 +99,7 @@ object frmMain: TfrmMain
     ViewStyle = vsReport
     OnColumnClick = lvInputColumnClick
     OnData = lvInputData
+    ExplicitHeight = 442
   end
   object MainMenu: TMainMenu
     Left = 8
@@ -187,6 +190,10 @@ object frmMain: TfrmMain
     object miResize: TMenuItem
       Caption = 'Resize...'
       OnClick = miResizeClick
+    end
+    object miRenameImageFiles: TMenuItem
+      Caption = 'Rename image files in temporary folder'
+      OnClick = miRenameImageFilesClick
     end
     object N1: TMenuItem
       Caption = '-'

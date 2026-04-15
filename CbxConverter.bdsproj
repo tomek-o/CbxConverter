@@ -233,6 +233,7 @@
         <FILE FILENAME="Image.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="Image" FORMNAME="" DESIGNCLASS="" ADDITIONAL="Image.h"/>
         <FILE FILENAME="WindowsMessageFilter.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="WindowsMessageFilter" FORMNAME="" DESIGNCLASS="" ADDITIONAL="WindowsMessageFilter.h"/>
         <FILE FILENAME="FileNameMatch.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="FileNameMatch" FORMNAME="" DESIGNCLASS="" ADDITIONAL="FileNameMatch.h"/>
+        <FILE FILENAME="FormRename.cpp" CONTAINERID="CCompiler" LOCALCOMMAND="" UNITNAME="FormRename" FORMNAME="frmRename" DESIGNCLASS="" ADDITIONAL="FormRename.h"/>
       </FILELIST>
       <IDEOPTIONS>
         <VersionInfo>

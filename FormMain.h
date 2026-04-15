@@ -61,6 +61,7 @@ __published:	// IDE-managed Components
 	TImageList *imagelistInput;
 	TMenuItem *N4;
 	TMenuItem *miSelectAll;
+	TMenuItem *miRenameImageFiles;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall actShowAboutExecute(TObject *Sender);
@@ -85,6 +86,7 @@ __published:	// IDE-managed Components
 	void __fastcall miDeleteOutputFilesClick(TObject *Sender);
 	void __fastcall lvInputColumnClick(TObject *Sender, TListColumn *Column);
 	void __fastcall miSelectAllClick(TObject *Sender);
+	void __fastcall miRenameImageFilesClick(TObject *Sender);
 private:	// User declarations
 	void AddSourceFile(AnsiString name, AnsiString rootPath);
 	/** \brief Add all files from the folder, recursively */
