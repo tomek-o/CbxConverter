@@ -157,3 +157,21 @@ void __fastcall TfrmRename::btnRenameClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfrmRename::miDeleteSelectedFilesClick(TObject *Sender)
+{
+	for (int i=lvFiles->Items->Count-1; i>=0; i--)
+	{
+		TListItem *item = lvFiles->Items->Item[i];
+		if (item->Selected)
+		{
+			SourceFile::FileDesc &fd = sourceFile->fileDescs[i];
+			DeleteFile(fd.name);
+			sourceFile->fileDescs.erase(sourceFile->fileDescs.begin() + i);
+		}
+	}
+	lvFiles->Items->Count = sourceFile->fileDescs.size();
+	lvFiles->ClearSelection();
+	lvFiles->Invalidate();
+}
+//---------------------------------------------------------------------------
+

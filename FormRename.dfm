@@ -98,10 +98,20 @@ object frmRename: TfrmRename
         Width = 300
       end>
     HideSelection = False
+    MultiSelect = True
     OwnerData = True
     RowSelect = True
+    PopupMenu = popupList
     TabOrder = 1
     ViewStyle = vsReport
     OnData = lvFilesData
+  end
+  object popupList: TPopupMenu
+    Left = 8
+    Top = 24
+    object miDeleteSelectedFiles: TMenuItem
+      Caption = 'Delete selected file(s)'
+      OnClick = miDeleteSelectedFilesClick
+    end
   end
 end
