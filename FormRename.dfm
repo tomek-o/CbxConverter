@@ -97,7 +97,9 @@ object frmRename: TfrmRename
         Caption = 'New name'
         Width = 300
       end>
+    HideSelection = False
     OwnerData = True
+    RowSelect = True
     TabOrder = 1
     ViewStyle = vsReport
     OnData = lvFilesData
