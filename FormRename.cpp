@@ -55,13 +55,23 @@ AnsiString TfrmRename::GetNewName(AnsiString name, int id)
 		{
 			tmp = tmp.SubString(1, pos-1);
 		}
+		bool insideNumber = false;
 		for (int i=tmp.Length(); i>0; i--)
 		{
 			char c = tmp[i];
 			if (!isdigit(c))
 			{
+				if (!insideNumber)
+				{
+					tmp = tmp.SubString(1, tmp.Length() - 1);
+					continue;
+				}
 				tmp = tmp.SubString(i+1, tmp.Length() - i);
 				break;
+			}
+			else
+			{
+				insideNumber = true;
 			}
 		}
 		int number = 0;
