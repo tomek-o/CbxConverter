@@ -62,6 +62,7 @@ __published:	// IDE-managed Components
 	TMenuItem *N4;
 	TMenuItem *miSelectAll;
 	TMenuItem *miRenameImageFiles;
+	TMenuItem *miSkipPackingBack;
 	void __fastcall FormCreate(TObject *Sender);
 	void __fastcall FormCloseQuery(TObject *Sender, bool &CanClose);
 	void __fastcall actShowAboutExecute(TObject *Sender);
@@ -87,6 +88,8 @@ __published:	// IDE-managed Components
 	void __fastcall lvInputColumnClick(TObject *Sender, TListColumn *Column);
 	void __fastcall miSelectAllClick(TObject *Sender);
 	void __fastcall miRenameImageFilesClick(TObject *Sender);
+	void __fastcall miSkipPackingBackClick(TObject *Sender);
+	void __fastcall popupInputPopup(TObject *Sender);
 private:	// User declarations
 	void AddSourceFile(AnsiString name, AnsiString rootPath);
 	/** \brief Add all files from the folder, recursively */

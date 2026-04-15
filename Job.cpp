@@ -202,8 +202,15 @@ void Job::Execute(bool *abort, int priority)
 			{
 				file->state = SourceFile::CONVERTING;
 				Convert();
-				file->state = SourceFile::PACKING;
-				Pack();
+				if (!file->doNotPack)
+				{
+					file->state = SourceFile::PACKING;
+					Pack();
+				}
+				else
+				{
+					file->state = SourceFile::DONE;
+				}
 			}
 			break;
 		default:

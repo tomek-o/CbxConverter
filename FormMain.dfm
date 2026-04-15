@@ -2,7 +2,7 @@ object frmMain: TfrmMain
   Left = 0
   Top = 0
   Caption = 'CbxConverter'
-  ClientHeight = 519
+  ClientHeight = 538
   ClientWidth = 942
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -21,21 +21,21 @@ object frmMain: TfrmMain
   TextHeight = 13
   object StatusBar: TStatusBar
     Left = 0
-    Top = 500
+    Top = 519
     Width = 942
     Height = 19
     Panels = <>
-    ExplicitTop = 481
+    ExplicitTop = 500
   end
   object pnlBottom: TPanel
     Left = 0
-    Top = 461
+    Top = 480
     Width = 942
     Height = 39
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 1
-    ExplicitTop = 442
+    ExplicitTop = 461
     object btnStartConversion: TButton
       Left = 16
       Top = 6
@@ -50,7 +50,7 @@ object frmMain: TfrmMain
     Left = 0
     Top = 0
     Width = 942
-    Height = 461
+    Height = 480
     Align = alClient
     Columns = <
       item
@@ -99,7 +99,7 @@ object frmMain: TfrmMain
     ViewStyle = vsReport
     OnColumnClick = lvInputColumnClick
     OnData = lvInputData
-    ExplicitHeight = 442
+    ExplicitHeight = 461
   end
   object MainMenu: TMainMenu
     Left = 8
@@ -185,6 +185,7 @@ object frmMain: TfrmMain
     Top = 112
   end
   object popupInput: TPopupMenu
+    OnPopup = popupInputPopup
     Left = 8
     Top = 152
     object miResize: TMenuItem
@@ -194,6 +195,10 @@ object frmMain: TfrmMain
     object miRenameImageFiles: TMenuItem
       Caption = 'Rename image files in temporary folder'
       OnClick = miRenameImageFilesClick
+    end
+    object miSkipPackingBack: TMenuItem
+      Caption = 'Skip packing back (leave in temporary folder)'
+      OnClick = miSkipPackingBackClick
     end
     object N1: TMenuItem
       Caption = '-'

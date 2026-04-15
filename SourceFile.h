@@ -59,6 +59,7 @@ struct SourceFile
 	uint64_t imgSize;
 	ResizeCfg resizeCfg;
 	bool unpacked;
+	bool doNotPack;
 	bool defaultResizeApplied;
 
 	bool widthValid;
@@ -86,6 +87,7 @@ struct SourceFile
 		imgCount = 0;
 		imgSize = 0;
 		unpacked = false;
+		doNotPack = false;
 		widthValid = false;
 		outSizeValid = false;
 		outSize = 0;

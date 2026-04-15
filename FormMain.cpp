@@ -1040,3 +1040,42 @@ void __fastcall TfrmMain::miRenameImageFilesClick(TObject *Sender)
 }
 //---------------------------------------------------------------------------
 
+void __fastcall TfrmMain::miSkipPackingBackClick(TObject *Sender)
+{
+    miSkipPackingBack->Checked = !miSkipPackingBack->Checked;
+	for (int i=0; i<lvInput->Items->Count; i++)
+	{
+		TListItem *item = lvInput->Items->Item[i];
+		if (item->Selected)
+		{
+			SourceFile *source = sourceFiles[i];
+			source->doNotPack = miSkipPackingBack->Checked;
+		}
+	}
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmMain::popupInputPopup(TObject *Sender)
+{
+	bool packingSkipped = false;
+	for (int i=0; i<lvInput->Items->Count; i++)
+	{
+		TListItem *item = lvInput->Items->Item[i];
+		if (item->Selected)
+		{
+			SourceFile *source = sourceFiles[i];
+			if (source->doNotPack)
+			{
+				packingSkipped = true;
+			}
+			else
+			{
+				packingSkipped = false;
+				break;
+			}
+		}
+	}
+	miSkipPackingBack->Checked = packingSkipped;
+}
+//---------------------------------------------------------------------------
+
