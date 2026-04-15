@@ -163,7 +163,8 @@ void __fastcall TfrmRename::btnRenameClick(TObject *Sender)
         	fd.name = newName;
 		}
 	}
-	lvFiles->Invalidate();	
+	lvFiles->Invalidate();
+	edOffset->Text = "0";	
 }
 //---------------------------------------------------------------------------
 
