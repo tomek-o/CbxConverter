@@ -49,16 +49,6 @@ Is it possible to add a PAUSE and or CANCEL button to the CBXconverter?
 > niby jest opcja z prawego przycisku myszy REMOVE SELECTED FILES FROM  
 > LIST ale nie mozna jej uzyć w trakcie konwersji  na problematycznym  
 > pliku bo program krzyczy CANNOT MODIFY LIST WHILE CONVERTING.
->
-> moim zdaniem powinna być możliwosc dodania opcji w ustawieniach:
->
-> - automatyczne omijanie zahasłowanych plików ON/OFF
->
-> oraz opcjonalnie opcja
->
-> - omiń przy rozpakowywaniu oraz przenieś wszystkie zahasłowane pliki do  
-> oddzielnego folderu (i tutaj opcja do okreslenia tego folderu oraz  
-> scieżki dostepu)
 
 
 

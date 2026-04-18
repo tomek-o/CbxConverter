@@ -132,4 +132,5 @@ previously new entry for default resizing rules could be added with down arrow -
 	- option to extract page number from existing file
 		- option to add positive or negative offset to extracted number
 	- option to start numbering files from specified offset
+	- option to skip packing converted images into new cbz file, leaving images in temporary folder for manual merging
 */
