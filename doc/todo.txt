@@ -6,9 +6,6 @@
 
 - list: output size, coloring
 
-- details: image list, delete images, preview, rename/reorder
-
-
 TODO:
 - disable adding new files while converting
 
@@ -18,8 +15,6 @@ TODO:
 [_] skip single jpegs if size is size is bigger than [xxx%]
 
 - delete items from tmp directory if app is closed before conversion is started
-
-- fix page numbering : 1.jpg, 11.jpg (missing leading zeroes)
 
 > 1. Za szybko startuje skan - zdarza się, że chciałbym utworzyć kolejkę z  
 > kilkunastu różnych katalogów i dopiero wystartować z konwersją. Dobrym  

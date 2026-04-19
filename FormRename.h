@@ -27,12 +27,14 @@ __published:	// IDE-managed Components
 	TEdit *edOffset;
 	TPopupMenu *popupList;
 	TMenuItem *miDeleteSelectedFiles;
+	TMenuItem *miOpenFile;
 	void __fastcall lvFilesData(TObject *Sender, TListItem *Item);
 	void __fastcall cbRenameTypeChange(TObject *Sender);
 	void __fastcall edOffsetChange(TObject *Sender);
 	void __fastcall edPatternChange(TObject *Sender);
 	void __fastcall btnRenameClick(TObject *Sender);
 	void __fastcall miDeleteSelectedFilesClick(TObject *Sender);
+	void __fastcall miOpenFileClick(TObject *Sender);
 private:	// User declarations
 	enum RenameType {
 		RenameExtractingNumberFromName = 0,

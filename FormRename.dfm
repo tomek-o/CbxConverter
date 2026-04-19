@@ -125,6 +125,10 @@ object frmRename: TfrmRename
   object popupList: TPopupMenu
     Left = 8
     Top = 24
+    object miOpenFile: TMenuItem
+      Caption = 'Open file in default viewer'
+      OnClick = miOpenFileClick
+    end
     object miDeleteSelectedFiles: TMenuItem
       Caption = 'Delete selected file(s)'
       OnClick = miDeleteSelectedFilesClick

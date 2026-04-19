@@ -117,7 +117,7 @@ void __fastcall TfrmRename::cbRenameTypeChange(TObject *Sender)
 
 void __fastcall TfrmRename::edOffsetChange(TObject *Sender)
 {
-	offset = StrToIntDef(edOffset->Text, 0);	
+	offset = StrToIntDef(edOffset->Text, 0);
 	lvFiles->Invalidate();
 }
 //---------------------------------------------------------------------------
@@ -190,6 +190,16 @@ void __fastcall TfrmRename::miDeleteSelectedFilesClick(TObject *Sender)
 	lvFiles->Items->Count = sourceFile->fileDescs.size();
 	lvFiles->ClearSelection();
 	lvFiles->Invalidate();
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TfrmRename::miOpenFileClick(TObject *Sender)
+{
+	TListItem *item = lvFiles->Selected;
+	if (!item)
+		return;
+	const SourceFile::FileDesc &fd = sourceFile->fileDescs[item->Index];
+	ShellExecute(NULL, "open", fd.name.c_str(), NULL, NULL, SW_SHOWNORMAL);
 }
 //---------------------------------------------------------------------------
 

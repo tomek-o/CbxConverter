@@ -127,10 +127,14 @@ previously new entry for default resizing rules could be added with down arrow -
 
 0.16
 - added function/window renaming files in temporary folder
-	- main purpose: merging multiple comic books or their fragments - this requires continuous and consistent file naming
-	- configurable pattern for generating new names
+	- main purpose: merging multiple comic books or their fragments - this requires consistent file naming; files should be also resized to at least similar sizes for convenience when reading
+	- option to skip packing converted images into new cbz file, leaving images in temporary folder for manual merging
+	- configurable pattern for generating new names (default: four digits with leading zeros)
 	- option to extract page number from existing file
 		- option to add positive or negative offset to extracted number
-	- option to start numbering files from specified offset
-	- option to skip packing converted images into new cbz file, leaving images in temporary folder for manual merging
+		- can be used also to fix inconsistent page numbering (without leading zeros)
+	- option to start numbering files from specified value
+	- images and other files can be deleted from the renaming list window
+	- renaming list shows dimensions and sizes in bytes of images - making it easier to identify ads or odd files to delete
+	- option to open selected image in default viewer
 */
