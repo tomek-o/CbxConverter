@@ -3,7 +3,7 @@ object frmRename: TfrmRename
   Top = 0
   Caption = 'Rename images in temporary folder'
   ClientHeight = 335
-  ClientWidth = 627
+  ClientWidth = 775
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -16,13 +16,14 @@ object frmRename: TfrmRename
   object pnlBottom: TPanel
     Left = 0
     Top = 256
-    Width = 627
+    Width = 775
     Height = 79
     Align = alBottom
     BevelOuter = bvNone
     TabOrder = 0
+    ExplicitWidth = 627
     DesignSize = (
-      627
+      775
       79)
     object lblPattern: TLabel
       Left = 0
@@ -39,7 +40,7 @@ object frmRename: TfrmRename
       Caption = 'Offset to add / starting number'
     end
     object btnRename: TButton
-      Left = 547
+      Left = 695
       Top = 49
       Width = 75
       Height = 25
@@ -47,6 +48,7 @@ object frmRename: TfrmRename
       Caption = 'Rename'
       TabOrder = 0
       OnClick = btnRenameClick
+      ExplicitLeft = 547
     end
     object cbRenameType: TComboBox
       Left = 0
@@ -85,7 +87,7 @@ object frmRename: TfrmRename
   object lvFiles: TListView
     Left = 0
     Top = 0
-    Width = 627
+    Width = 775
     Height = 256
     Align = alClient
     Columns = <
@@ -96,6 +98,18 @@ object frmRename: TfrmRename
       item
         Caption = 'New name'
         Width = 300
+      end
+      item
+        Caption = 'Size [B]'
+        Width = 60
+      end
+      item
+        Caption = 'Width'
+        Width = 45
+      end
+      item
+        Caption = 'Height'
+        Width = 45
       end>
     HideSelection = False
     MultiSelect = True
@@ -105,6 +119,8 @@ object frmRename: TfrmRename
     TabOrder = 1
     ViewStyle = vsReport
     OnData = lvFilesData
+    ExplicitTop = 1
+    ExplicitWidth = 627
   end
   object popupList: TPopupMenu
     Left = 8

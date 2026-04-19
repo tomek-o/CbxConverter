@@ -73,9 +73,11 @@ struct SourceFile
 		AnsiString name;
 		int width;
 		int height;
+		uint64_t size;
 		FileDesc(void):
 			width(-1),
-			height(-1)
+			height(-1),
+			size(0)
 		{}
     };
 	std::vector<FileDesc> fileDescs;

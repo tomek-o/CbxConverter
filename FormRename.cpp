@@ -42,6 +42,13 @@ void __fastcall TfrmRename::lvFilesData(TObject *Sender, TListItem *Item)
 	{
     	Item->SubItems->Add(ExtractFileName(newName));
 	}
+	else
+	{
+		Item->SubItems->Add("");
+	}
+	Item->SubItems->Add(fd.size);
+	Item->SubItems->Add(fd.width);
+	Item->SubItems->Add(fd.height);
 }
 //---------------------------------------------------------------------------
 

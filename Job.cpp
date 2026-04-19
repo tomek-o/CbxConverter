@@ -356,6 +356,7 @@ void Job::ProcessSource(AnsiString dir, AnsiString cmdline)
 		uint64_t fsize = files[i].size;
 		SourceFile::FileDesc desc;
 		desc.name = name;
+		desc.size = fsize;
 
         file->stateProgress = 100 * i / files.size();
 
