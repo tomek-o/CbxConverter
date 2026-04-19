@@ -316,7 +316,7 @@ void Job::ProcessSource(AnsiString dir, AnsiString cmdline)
 	WaitForSingleObject( pi.hProcess, INFINITE );
 
 	DWORD exitCode;
-	BOOL result = GetExitCodeProcess(pi.hProcess, &exitCode);	
+	BOOL result = GetExitCodeProcess(pi.hProcess, &exitCode);
 
 	// Close process and thread handles.
 	CloseHandle( pi.hProcess );
@@ -407,7 +407,7 @@ void Job::Convert(void)
 	file->stateProgress = 0;
 	for (unsigned int i=0; i<file->fileDescs.size(); i++)
 	{
-		const struct SourceFile::FileDesc &fd = file->fileDescs[i];
+		struct SourceFile::FileDesc &fd = file->fileDescs[i];
 		AnsiString fname = ExtractFileName(fd.name);
 		if (filesToSkip != "")
 		{
@@ -420,41 +420,44 @@ void Job::Convert(void)
 		if (*abort)
 			break;
 		file->stateProgress = 100 * i / file->fileDescs.size();
-		ConvertFile(fd.name, fd.width, fd.height);
+		ConvertFile(fd);
 	}
 }
 
-void Job::ConvertFile(AnsiString path, int width, int height)
+void Job::ConvertFile(struct SourceFile::FileDesc &fd)
 {
 	AnsiString cmdline;
 	AnsiString extension = sOutputExtension;
 	if (extension[1] != '.')
 		extension = (AnsiString)"." + extension;
-	AnsiString out = ChangeFileExt(path, extension);
+	AnsiString out = ChangeFileExt(fd.name, extension);
 	int resizePct = 100;
 	AnsiString resizeCmd;
+	int newWidth = fd.width, newHeight = fd.height;
 
 	if (resizeCfg.mode == ResizeCfg::ModeRegular)
 	{
 		resizePct = resizeCfg.resizePct;
 		resizeCmd.sprintf("-resize %d%%", resizePct);
+		newWidth = fd.width * resizePct / 100;
+		newHeight = fd.height * resizePct / 100;
 	}
 	else if (resizeCfg.mode == ResizeCfg::ModeOnOversize)
 	{
 		resizeCmd.sprintf("-resize %d%%", resizePct);
-		if (width > 0 && height > 0)
+		if (fd.width > 0 && fd.height > 0)
 		{
 			int maxDimension = 0;
 			switch (resizeCfg.modeOnOversize)
 			{
 			case ResizeCfg::ModeOnOversizeWiderOrHigher:
-				maxDimension = std::max(width, height);
+				maxDimension = std::max(fd.width, fd.height);
 				break;
 			case ResizeCfg::ModeOnOversizeWider:
-				maxDimension = width;
+				maxDimension = fd.width;
 				break;
 			case ResizeCfg::ModeOnOversizeHigher:
-				maxDimension = height;
+				maxDimension = fd.height;
 				break;
 			default:
 				assert(!"Unhandled modeOnOversize!");
@@ -462,11 +465,11 @@ void Job::ConvertFile(AnsiString path, int width, int height)
 			if (maxDimension >= resizeCfg.resizeThreshold)
 			{
 				float scaling = (float)resizeCfg.resizeTarget/(float)maxDimension;
-				width = (int)(scaling * width + 0.5f);
-				height = (int)(scaling * height + 0.5f);
-				resizeCmd.sprintf("-resize %dx%d", width, height);
-            }
-        }
+				newWidth = (int)(scaling * fd.width + 0.5f);
+				newHeight = (int)(scaling * fd.height + 0.5f);
+				resizeCmd.sprintf("-resize %dx%d", newWidth, newHeight);
+			}
+		}
 	}
 	else
 	{
@@ -474,7 +477,7 @@ void Job::ConvertFile(AnsiString path, int width, int height)
 	}
 #if 1
 	cmdline.sprintf("\"%s\" \"%s\" %s %s %s \"%s\" ",
-		imPath.c_str(), path.c_str(),
+		imPath.c_str(), fd.name.c_str(),
 		sImExtraParamsBeforeResize.c_str(), resizeCmd.c_str(), sImExtraParams.c_str(),
 		out.c_str());
 #else
@@ -490,7 +493,7 @@ void Job::ConvertFile(AnsiString path, int width, int height)
 #endif
 	STARTUPINFO si;
 	PROCESS_INFORMATION pi;
-    ZeroMemory( &si, sizeof(si) ); 
+	ZeroMemory( &si, sizeof(si) );
 	si.cb = sizeof(si);
 	ZeroMemory( &pi, sizeof(pi) );
 
@@ -535,15 +538,22 @@ void Job::ConvertFile(AnsiString path, int width, int height)
 				LOG("Error deleting %s", path.c_str());
 			}
 		#else
-			if (UpperCase(path) != UpperCase(out))
+			if (UpperCase(fd.name) != UpperCase(out))
 			{
-				DeleteDirectory(NULL, path, true);
+				DeleteDirectory(NULL, fd.name, true);
 			}
 		#endif
+			fd.name = out;
+			fd.width = newWidth;
+			fd.height = newHeight;
+			struct stati64 statbuf;
+			memset(&statbuf, 0, sizeof(statbuf));
+			_stati64(out.c_str(), &statbuf);
+			fd.size = statbuf.st_size;
 		}
 		else
 		{
-			LOG("Error converting %s", path.c_str());
+			LOG("Error converting %s", fd.name.c_str());
 		}
 	}
 	else

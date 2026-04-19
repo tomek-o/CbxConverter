@@ -9,8 +9,7 @@
 #include <vector>
 
 #include "ResizeCfg.h"
-
-struct SourceFile;
+#include "SourceFile.h"
 
 class Job
 {
@@ -51,7 +50,7 @@ private:
 	void Unpack(void);
 	void RenderPdf(void);
 	void Convert(void);
-	void ConvertFile(AnsiString name, int width, int height);
+	void ConvertFile(struct SourceFile::FileDesc &fd);
 	void Pack(void);
 	void Copy(void);
 
