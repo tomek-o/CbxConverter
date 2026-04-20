@@ -75,9 +75,18 @@ bool Settings::Read(AnsiString asFileName)
 		}
 
 		Worker.playSoundWhenDone = ini->ReadBool("Worker", "PlaySoundWhenDone", true);
-		Worker.threadCount = ini->ReadInteger("Worker", "ThreadCount", _Worker::THREAD_COUNT_DEF);
-		if (Worker.threadCount < _Worker::THREAD_COUNT_MIN || Worker.threadCount > _Worker::THREAD_COUNT_MAX)
-			Worker.threadCount = _Worker::THREAD_COUNT_DEF;
+
+		{
+			SYSTEM_INFO si;
+			memset(&si, 0, sizeof(si));
+			GetSystemInfo(&si);
+			unsigned int defaultThreadCount = si.dwNumberOfProcessors / 2;
+			if (defaultThreadCount < 1)
+				defaultThreadCount = 1;
+			Worker.threadCount = ini->ReadInteger("Worker", "ThreadCount", defaultThreadCount);
+			if (Worker.threadCount < _Worker::THREAD_COUNT_MIN || Worker.threadCount > _Worker::THREAD_COUNT_MAX)
+				Worker.threadCount = defaultThreadCount;
+		}
 
 		for (unsigned int i=0; i<sizeof(Conversion.DefResize)/sizeof(Conversion.DefResize[0]); i++)
 		{

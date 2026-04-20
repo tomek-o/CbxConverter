@@ -31,11 +31,7 @@ public:
 		enum
 		{
 			THREAD_COUNT_MIN = 1,
-			THREAD_COUNT_MAX = 16
-		};
-		enum
-		{
-        	THREAD_COUNT_DEF = 1
+			THREAD_COUNT_MAX = 64
 		};
 		int threadCount;
 	} Worker;
