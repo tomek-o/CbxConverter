@@ -137,4 +137,6 @@ previously new entry for default resizing rules could be added with down arrow -
 	- images and other files can be deleted from the renaming list window
 	- renaming list shows dimensions and sizes in bytes of images - making it easier to identify ads or odd files to delete
 	- option to open selected image in default viewer
+- default worker thread count is now set to half of the number of processors reported by GetSystemInfo()
+- maximum number of worker thread increased to 64
 */

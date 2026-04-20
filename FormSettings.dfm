@@ -217,23 +217,6 @@ object frmSettings: TfrmSettings
         Style = csDropDownList
         ItemHeight = 13
         TabOrder = 7
-        Items.Strings = (
-          '1'
-          '2'
-          '3'
-          '4'
-          '5'
-          '6'
-          '7'
-          '8'
-          '9'
-          '10'
-          '11'
-          '12'
-          '13'
-          '14'
-          '15'
-          '16')
       end
       object edConversionFilesToSkip: TEdit
         Left = 109

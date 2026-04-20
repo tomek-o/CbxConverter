@@ -25,6 +25,10 @@ __fastcall TfrmSettings::TfrmSettings(TComponent* Owner)
 	{
 		cbOutDirectoryType->Items->Add(Settings::_Directories::DirectoryTypeDescription(static_cast<enum Settings::_Directories::DirectoryType>(i)));
 	}
+	for (int i=0; i<Settings::_Worker::THREAD_COUNT_MAX; i++)
+	{
+		cbWorkerThreadCount->Items->Add(i+1);
+	}
 	pcGeneral->ActivePage = tsGeneral;
 }
 //---------------------------------------------------------------------------
