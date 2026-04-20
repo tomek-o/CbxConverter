@@ -71,6 +71,8 @@ __published:	// IDE-managed Components
 	TEdit *edUnpackPassword;
 	TCheckBox *chbCopyFileToOutputOnError;
 	TButton *btnAddResizingEntry;
+	TLabel *lblPdfNote;
+	TLabel *lblPdfNote2;
 	void __fastcall FormShow(TObject *Sender);
 	void __fastcall btnCancelClick(TObject *Sender);
 	void __fastcall btnApplyClick(TObject *Sender);

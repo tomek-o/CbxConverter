@@ -51,7 +51,7 @@ object frmSettings: TfrmSettings
     Top = 0
     Width = 514
     Height = 428
-    ActivePage = tsGeneral
+    ActivePage = pcPdfImport
     Align = alClient
     TabOrder = 0
     object tsGeneral: TTabSheet
@@ -295,6 +295,22 @@ object frmSettings: TfrmSettings
         Width = 89
         Height = 13
         Caption = 'image files pattern'
+      end
+      object lblPdfNote: TLabel
+        Left = 3
+        Top = 120
+        Width = 386
+        Height = 13
+        Caption = 
+          'Note: pdf files are rendered by default in high resolution to im' +
+          'prove font quality.'
+      end
+      object lblPdfNote2: TLabel
+        Left = 3
+        Top = 139
+        Width = 288
+        Height = 13
+        Caption = 'Scaling rendered files down to 50% or less is recommended.'
       end
       object edGsLocation: TEdit
         Left = 137
